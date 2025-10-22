@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Register</h1>
+    <input type="text" id="reg-username" placeholder="Enter your username" />
+    <button id="register-btn">Register</button>
+  </div>
+
+  <script>
+    document.getElementById("register-btn").addEventListener("click", () => {
+      const username = document.getElementById("reg-username").value.trim();
+      if (!username) {
+        alert("Please enter a username!");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      if (users.find(u => u.username === username)) {
+        alert("Username already exists! Please choose another.");
+        return;
+      }
+
+      users.push({ username, quizzesTaken: [], scores: [] });
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("currentUser", username);
+      window.location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>

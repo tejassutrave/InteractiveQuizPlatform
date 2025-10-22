@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Quiz with Leaderboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Interactive Quiz</h1>
+
+    <!-- 👤 Start Screen -->
+    <div id="start-screen">
+      <input type="text" id="username" placeholder="Enter your name" />
+      <button id="start-btn">Start Quiz</button>
+    </div>
+
+    <!-- 🧩 Quiz Screen -->
+    <div id="quiz-screen" style="display: none;">
+      <div id="timer">Time Left: 60s</div>
+      <div id="question-container"></div>
+      <div id="options-container"></div>
+    </div>
+
+    <!-- 🧮 Result Screen -->
+    <div id="result-screen" style="display: none;">
+      <div id="score-container"></div>
+      <button id="view-answers-btn">View All Answers</button>
+      <button id="view-leaderboard-btn">View Leaderboard</button>
+      <button id="restart-btn">Start New Quiz</button>
+    </div>
+
+    <!-- 📋 Answers Screen -->
+    <div id="answers-screen" style="display: none;">
+      <h2>All Questions & Answers</h2>
+      <div id="answers-list"></div>
+      <button id="back-to-results-btn">Back to Results</button>
+    </div>
+
+    <!-- 🏆 Leaderboard Screen -->
+    <div id="leaderboard-screen" style="display: none;">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboard"></ul>
+      <button id="clear-leaderboard-btn">Clear Leaderboard Data</button>
+      <button id="back-btn">Back to Start</button>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
